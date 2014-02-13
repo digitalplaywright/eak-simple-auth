@@ -1,4 +1,5 @@
 import Resolver from 'resolver';
+import auth from "appkit/initializers/auth";
 
 var App = Ember.Application.extend({
   LOG_ACTIVE_GENERATION: true,
@@ -9,5 +10,8 @@ var App = Ember.Application.extend({
   modulePrefix: 'appkit', // TODO: loaded via config
   Resolver: Resolver['default']
 });
+
+Ember.Application.initializer(auth);
+
 
 export default App;

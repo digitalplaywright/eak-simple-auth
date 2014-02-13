@@ -1,5 +1,5 @@
-<ul>
-{{#each}}
-  <li>{{this}}</li>
-{{/each}}
-</ul>
+{{#if session.isAuthenticated}}
+  <button {{ action 'invalidateSession' }}>Logout</button>
+{{else}}
+  <button {{ action 'authenticateSession' }}>Login</button>
+{{/if}}
