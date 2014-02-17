@@ -3,11 +3,11 @@
 An example of using [Ember-Simple-Auth](https://github.com/simplabs/ember-simple-auth) with the
 [Ember App Kit](https://github.com/stefanpenner/ember-app-kit).
 
-There is a Rails companion server using Devise/Doorkeeper which will be posted soon.
+To test, you can use this [Rails/Devise/Doorkeeper companion server](https://github.com/kagemusha/rails-token-auth).
 
 ## Getting Started
 
-
+to do
 
 
 ## License
