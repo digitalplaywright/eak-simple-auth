@@ -2,4 +2,5 @@
   <button {{ action 'invalidateSession' }}>Logout</button>
 {{else}}
   <button {{ action 'authenticateSession' }}>Login</button>
+  {{#link-to "registration"}}Registration{{/link-to}}
 {{/if}}

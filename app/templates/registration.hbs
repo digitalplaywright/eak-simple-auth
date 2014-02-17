@@ -1,0 +1,19 @@
+<h4>Registration Form</h4>
+<form {{action register on='submit'}}>
+  <p>
+    {{input id='email' placeholder='email' value=email}}
+  </p>
+  <p>
+    {{input id='password' placeholder='password' type='password' value=password}}
+  </p>
+  <p>
+    {{input id='password_confirmation' placeholder='confirm password' type='password' value=password_confirmation}}
+  </p>
+  <button type="submit">Register</button>
+</form>
+{{#unless session.isAuthenticated}}
+  <p>or</p>
+  <p>
+    <button {{ action 'authenticateSession' }}>Login</button>
+  </p>
+{{/unless}}
