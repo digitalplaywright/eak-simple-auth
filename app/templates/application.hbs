@@ -1,3 +1,9 @@
-<h2 id='title'>Welcome to Ember.js</h2>
+<h2 id='title'>Welcome to EAK-Simple-Auth</h2>
+{{#if session.isAuthenticated}}
+  Logged in as {{identification}}
+{{else}}
+  Not logged in
+{{/if}}
+<hr>
 
 {{outlet}}
