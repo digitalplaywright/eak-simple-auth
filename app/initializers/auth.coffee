@@ -5,7 +5,7 @@
 auth =
   name: "authentication",
   initialize: (container, application) ->
-    Em.SimpleAuth.setup application, {
+    Em.SimpleAuth.setup container, application, {
       crossOriginWhitelist: [window.ENV.server]
       routeAfterLogin: "index"
       routeAfterLogout: "login"
