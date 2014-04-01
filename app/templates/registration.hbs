@@ -1,3 +1,10 @@
+
+{{#if session.isAuthenticated}}
+
+You are now logged in as  
+{{email}}
+
+{{else}}
 <h4>Registration Form</h4>
 <form {{action register on='submit'}}>
   <p>
@@ -11,9 +18,9 @@
   </p>
   <button type="submit">Register</button>
 </form>
-{{#unless session.isAuthenticated}}
+
   <p>or</p>
   <p>
     <button {{ action 'authenticateSession' }}>Login</button>
   </p>
-{{/unless}}
+{{/if}}
