@@ -4,6 +4,7 @@
   "APIMethod": "stub",
   "proxyURL": "http://localhost:8000",
   "proxyPath": "/api",
+  "docURL": "http://localhost:8000/docs/index.html",
   "version": "0.0.0",
   "private": true,
   "directories": {
@@ -46,10 +47,11 @@
     "grunt-contrib-testem": "~0.5.14",
     "express-namespace": "~0.1.1",
     "request": "~2.33.0",
-    "loom-generators-ember-appkit": "~1.0.2",
+    "loom-generators-ember-appkit": "~1.0.5",
     "originate": "~0.1.5",
     "loom": "~3.1.2",
     "connect-livereload": "~0.3.1",
-    "grunt-contrib-coffee": "~0.10.0"
+    "grunt-es6-import-validate": "0.0.6",
+    "grunt-contrib-coffee": "^0.10.1"
   }
 }

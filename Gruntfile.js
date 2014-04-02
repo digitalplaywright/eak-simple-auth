@@ -1,3 +1,5 @@
+// jshint node:true
+
 module.exports = function(grunt) {
   // To support Coffeescript, SASS, LESS and others, just install
   // the appropriate grunt package and it will be automatically included
@@ -28,6 +30,12 @@ module.exports = function(grunt) {
   //
   // * for LiveReload, `npm install --save-dev connect-livereload`
   //
+  // * for YUIDoc support, `npm install --save-dev grunt-contrib-yuidoc`
+  //   It is also nice to use a theme other than default. For example,
+  //   simply do: `npm install yuidoc-theme-blue`
+  //   Currently, only the `app` directory is used for generating docs.
+  //   When installed, visit: http[s]://[host:port]/docs
+  //
   // * for displaying the execution time of the grunt tasks,
   //   `npm install --save-dev time-grunt`
   //
@@ -43,6 +51,9 @@ module.exports = function(grunt) {
   //
   // * for automatically adding CSS vendor prefixes (autoprefixer)
   //   `npm install --save-dev grunt-autoprefixer`
+  //
+  // * for package import validations
+  //   `npm install --save-dev grunt-es6-import-validate`
   //
 
   var Helpers = require('./tasks/helpers'),
@@ -160,6 +171,14 @@ module.exports = function(grunt) {
                      'htmlmin:dist' // Removes comments and whitespace
                      ]));
 
+  // Documentation
+  // -------
+  grunt.registerTask('docs', "Build YUIDoc documentation.", [
+                     'buildDocs',
+                     'server:debug'
+                     ]);
+
+
   // Parallelize most of the build process
   _.merge(config, {
     concurrent: {
@@ -197,6 +216,7 @@ module.exports = function(grunt) {
                      'emberscript',
                      'copy:javascriptToTmp',
                      'transpile',
+                     'buildDocs',
                      'concat_sourcemap'
                      ]));
 
@@ -210,6 +230,11 @@ module.exports = function(grunt) {
                      'autoprefixer:app'
                      ]));
 
+  // Documentation
+  grunt.registerTask('buildDocs', filterAvailable([
+                     'yuidoc:debug',
+                     ]));
+
   // Index HTML
   grunt.registerTask('buildIndexHTML:dist', [
                      'preprocess:indexHTMLDistApp',
@@ -220,7 +245,7 @@ module.exports = function(grunt) {
                      'preprocess:indexHTMLDebugApp',
                      'preprocess:indexHTMLDebugTests'
                      ]);
-  
+
   grunt.registerTask('createResultDirectory', function() {
     grunt.file.mkdir('tmp/result');
   });

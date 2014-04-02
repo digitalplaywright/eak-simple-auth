@@ -1,8 +1,10 @@
 var Helpers = require('../helpers'),
     filterAvailable = Helpers.filterAvailableTasks,
-    liveReloadPort = parseInt(process.env.PORT || 8000, 10) + 2;
+    LIVERELOAD_PORT = 35729,
+    liveReloadPort = (parseInt(process.env.PORT || 8000, 10) - 8000) + LIVERELOAD_PORT;
 
-var scripts = '{app,tests,config}/**/*.{js,coffee,em}',
+var docs = '{app}/**/*.{js,coffee,em}',
+    scripts = '{app,tests,config}/**/*.{js,coffee,em}',
     templates = 'app/templates/**/*.{hbs,handlebars,hjs,emblem}',
     sprites = 'app/sprites/**/*.{png,jpg,jpeg}',
     styles = 'app/styles/**/*.{css,sass,scss,less,styl}',
@@ -32,6 +34,10 @@ module.exports = {
     files: [indexHTML],
     tasks: ['lock', 'buildIndexHTML:debug', 'unlock']
   },
+  docs: {
+    files: [docs],
+    tasks: ['lock', 'buildDocs', 'unlock']
+  },
   other: {
     files: [other, '!'+scripts, '!'+templates, '!'+styles, '!'+indexHTML, bowerFile, npmFile],
     tasks: ['lock', 'build:debug', 'unlock']
@@ -42,6 +48,6 @@ module.exports = {
     debounceDelay: 0,
     // When we don't have inotify
     interval: 100,
-    livereload: Helpers.isPackageAvailable("connect-livereload") || liveReloadPort
+    livereload: liveReloadPort
   }
 };
