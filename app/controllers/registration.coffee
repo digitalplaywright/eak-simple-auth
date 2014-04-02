@@ -14,7 +14,10 @@ Obj = Em.Controller.extend
         }).then( ((response) ->
           Em.run (->
             console.log "Registration Suceeded!"
-            _this.get("session").setup response
+
+            _this.get('session').authenticate('ember-simple-auth:authenticators:oauth2', 
+              { identification: data.email, password: data.password })
+            
             _this.send "registrationSucceeded", response
           )
         ), ((xhr, status, error)->

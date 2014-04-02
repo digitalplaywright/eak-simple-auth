@@ -1,5 +1,7 @@
-import Resolver from 'resolver';
+import Resolver from 'ember/resolver';
+import AutoAuthenticator from 'appkit/libs/auto-authenticate';
 import auth from "appkit/initializers/auth";
+
 
 var App = Ember.Application.extend({
   LOG_ACTIVE_GENERATION: true,
