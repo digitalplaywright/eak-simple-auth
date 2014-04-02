@@ -7,8 +7,7 @@ To test, you can use this [Rails/Devise/Doorkeeper companion server](https://git
 
 ## Getting Started
 
-to do
-
+Follow the [Ember App Kit Getting Started Guide](http://iamstef.net/ember-app-kit/guides/getting-started.html) to setup and run this api client.
 
 ## License
 
