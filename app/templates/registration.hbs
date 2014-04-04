@@ -5,7 +5,10 @@ You are now logged in as
 {{email}}
 
 {{else}}
+{{xhr.responseText}}
 <h4>Registration Form</h4>
+<div class="regerror">
+</div>
 <form {{action register on='submit'}}>
   <p>
     {{input id='email' placeholder='email' value=email}}

@@ -2,3 +2,8 @@
 html, body {
     margin: 20px;
 }
+
+.regerror.error {
+	background: red;
+	padding: 10px;
+}
