@@ -6,7 +6,7 @@ var RegistrationController = Em.Controller.extend({
   
       var data, _this;
       _this = this;
-      data  = this.getProperties("email", "password", "password_confirmation");
+      data  = this.getProperties("email", "password");
   
       return Em.$.ajax({
       
