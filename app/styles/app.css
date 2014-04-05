@@ -3,7 +3,7 @@ html, body {
     margin: 20px;
 }
 
-.regerror.error {
+.alert.alert-danger {
 	background: red;
 	padding: 10px;
 }

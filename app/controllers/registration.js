@@ -50,7 +50,7 @@ var RegistrationController = Em.Controller.extend({
 
       var cur_error  = JSON.parse(xhr.responseText)["errors"];
 
-      var cur_error_str = "<div class='regerror error'>";
+      var cur_error_str = "<div class='alert alert-danger'>";
       for (var key in cur_error) {
         if (cur_error.hasOwnProperty(key)) {
           cur_error_str = cur_error_str + key + " " + cur_error[key];
