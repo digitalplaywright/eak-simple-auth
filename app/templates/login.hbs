@@ -8,6 +8,14 @@
   </p>
 </div>
 {{/if}}
+
+{{! display logout button when the session is authenticated, login button otherwise }}
+{{#if session.isAuthenticated}}
+  <a {{ action 'invalidateSession' }} class="btn btn-danger navbar-btn navbar-right">Logout</a>
+{{else}}
+  <button {{ action 'authenticateFacebookSession' }} class="btn btn-success navbar-btn navbar-right">Facebook Login</button>
+{{/if}}
+
 <h4>Login Form</h4>
 <form>
   <p>

@@ -13,6 +13,10 @@ var App = Ember.Application.extend({
   Resolver: Resolver['default']
 });
 
+
+
+
+
 Ember.Application.initializer(auth);
 
 
