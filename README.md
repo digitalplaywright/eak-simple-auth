@@ -7,7 +7,7 @@ This example will NOT work without a companion API server.
 
 
 You can use our [Rails/Devise/Doorkeeper companion server](https://github.com/digitalplaywright/rails-token-auth),
-**or other oauth API server of your choice**.
+**or any other oauth API server of your choice**.
 
 ## Getting Started
 
