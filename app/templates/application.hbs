@@ -1,9 +1,23 @@
-<h2 id='title'>Welcome to EAK-Simple-Auth</h2>
-{{#if session.isAuthenticated}}
-  Logged in as {{identification}}
-{{else}}
-  Not logged in
-{{/if}}
-<hr>
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="navbar-header">
+	  {{#link-to 'index' classNames='navbar-brand'}}
+	    Home
+	  {{/link-to}}
+	</div>
+	<div class="collapse navbar-collapse navbar-ex5-collapse">
+	  <ul class="nav navbar-nav">
+	    {{#link-to 'protected' tagName='li'}}
+	      <a style="cursor: pointer">Protected Page</a>
+	    {{/link-to}}
+	  </ul>
+	  {{! display logout button when the session is authenticated, login button otherwise }}
+	  {{#if session.isAuthenticated}}
+	    <a {{ action 'invalidateSession' }} class="btn btn-danger navbar-btn navbar-right">Logout</a>
+	  {{else}}
+	  	<a {{ action 'authenticateSession' }} class="btn btn-success navbar-btn navbar-right">Login</a>
+	  {{/if}}	
+	</div>
+	</nav>
+</nav>
 
 {{outlet}}
