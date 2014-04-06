@@ -5,22 +5,32 @@ You are now logged in as
 {{email}}
 
 {{else}}
-{{xhr.responseText}}
-<h4>Registration Form</h4>
-<div class="alert">
-</div>
-<form {{action register on='submit'}}>
-  <p>
-    {{input id='email' placeholder='email' value=email}}
-  </p>
-  <p>
-    {{input id='password' placeholder='password' type='password' value=password}}
-  </p>
-  <button type="submit">Register</button>
-</form>
+<div class="login-registration">
+  <div class="page-header">
+    <h3>Sign Up</h3>
+  </div>
+  {{xhr.responseText}}
 
-  <p>or</p>
-  <p>
-    <button {{ action 'authenticateSession' }}>Login</button>
-  </p>
+  <form {{action 'register' on='submit'}}>
+    <div class="form-group">
+      <label for="identification">Email</label>
+      {{input id='identification' placeholder='Enter Login' class='form-control' value=email}}
+
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      {{input id='password' placeholder='Enter Password' class='form-control' type='password' value=password}}
+    </div>
+    <button type="submit" class="btn btn-default">Login</button>
+  </form>
+   
+  <hr>
+  <span class="left">
+    Already have an account?
+  </span>
+  {{#link-to "login" class="left"}}Log In{{/link-to}}
+  
+</div>
+
+
 {{/if}}
