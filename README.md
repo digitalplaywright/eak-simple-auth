@@ -3,7 +3,11 @@
 An example of using [Ember-Simple-Auth](https://github.com/simplabs/ember-simple-auth) with the
 [Ember App Kit](https://github.com/stefanpenner/ember-app-kit).
 
-To test, you can use this [Rails/Devise/Doorkeeper companion server](https://github.com/digitalplaywright/rails-token-auth).
+This example will NOT work without a companion API server.
+
+
+You can use our [Rails/Devise/Doorkeeper companion server](https://github.com/digitalplaywright/rails-token-auth),
+**or other oauth API server of your choice**.
 
 ## Getting Started
 
