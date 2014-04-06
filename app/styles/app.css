@@ -3,11 +3,6 @@ html, body {
     margin: 20px;
 }
 
-.alert.alert-danger {
-	background: red;
-	padding: 10px;
-}
-
 .login-registration{
 	max-width: 400px;
     margin-left: auto;
