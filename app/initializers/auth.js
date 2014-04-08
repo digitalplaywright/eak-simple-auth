@@ -6,18 +6,17 @@
 var auth = {
   name: "authentication",
   initialize: function(container, application) {
-    var attribtues = {
+    var attributes = {
       crossOriginWhitelist: [window.ENV.server],
       routeAfterLogin: "index",
       routeAfterLogout: "login"
     };
 
-    if(Ember.testing == true)
-    {
-      var attributes = Ember.merge({store: Ember.SimpleAuth.Stores.Ephemeral });
+    if(Ember.testing == true){
+      attributes = Ember.merge({store: Ember.SimpleAuth.Stores.Ephemeral });
     }
 
-    Em.SimpleAuth.setup(container, application,attributes);
+    Em.SimpleAuth.setup(container, application, attributes);
     return Em.SimpleAuth.Authenticators.OAuth2.reopen({
       serverTokenEndpoint: window.ENV.server + "/oauth/token"
     });
