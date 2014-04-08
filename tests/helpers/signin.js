@@ -16,8 +16,6 @@ function signInUser(app, userPayload) {
 
 export function setEphemeralSessionStore(app) {
   var session   = app.__container__.lookup('ember-simple-auth:session');
-  console.log("in setEphemeralSessionStore");
-  console.log(session);
   session.store = Ember.SimpleAuth.Stores.Ephemeral.create();
 
   app.deferReadiness();
