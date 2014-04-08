@@ -6,6 +6,7 @@ function signInUser(app, userPayload) {
   }, userPayload || {});
 
   var session = app.__container__.lookup('ember-simple-auth:session');
+  console.log(session)
 
   return session.authenticate('authenticator:application', {
     email: userPayload.email,

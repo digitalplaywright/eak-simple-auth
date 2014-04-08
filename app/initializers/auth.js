@@ -13,7 +13,7 @@ var auth = {
     };
 
     if(Ember.testing == true){
-      attributes = Ember.merge({store: Ember.SimpleAuth.Stores.Ephemeral });
+      attributes = Ember.merge({store: Ember.SimpleAuth.Stores.Ephemeral }, attributes );
     }
 
     Em.SimpleAuth.setup(container, application, attributes);
