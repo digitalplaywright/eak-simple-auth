@@ -7,6 +7,7 @@ var auth = {
   name: "authentication",
   initialize: function(container, application) {
     var attributes = {
+      authorizerFactory: 'authorizer:oauth2-bearer',
       crossOriginWhitelist: [window.ENV.server],
       routeAfterLogin: "index",
       routeAfterLogout: "login"
