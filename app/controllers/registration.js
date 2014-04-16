@@ -1,28 +1,28 @@
 var RegistrationController = Em.Controller.extend({
 
   actions: {
-  
+
     register: function() {
-  
+
       var data, _this;
       _this = this;
       data  = this.getProperties("email", "password");
-  
+
       return Em.$.ajax({
-      
+
         method: "POST",
-        url: "http://localhost:3000//users.json",
+        url: window.ENV.server + "/users.json",
         dataType: 'json',
         data: {
           user: data
         }
-      
+
       }).then((function(response) {
 
         return Em.run((function() {
-          
+
           console.log("Registration Suceeded!");
-          
+
           _this.get('session').authenticate('authenticator:oauth2-password-grant', {
             identification: data.email,
             password: data.password
@@ -31,13 +31,13 @@ var RegistrationController = Em.Controller.extend({
           return _this.send("registrationSucceeded", response);
 
         }));
-      
+
       }), (function(xhr, status, error) {
-        
+
         return Em.run((function() {
           return _this.send("registrationFailed", xhr, status, error);
         }));
-        
+
       }));
 
     },
